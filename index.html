@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — StockLyte</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1B2A41;
+    --blue:   #2A7CF8;
+    --blue-dk:#1A5CD6;
+    --ground: #F6F8FB;
+    --surface:#FFFFFF;
+    --muted:  #5A6A80;
+    --border: #DDE5F0;
+    --text:   #1B2A41;
+    --r: 6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1rem, 5vw, 3rem);
+    height: 52px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.08);
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
+  .topbar-logo {
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .topbar-logo svg { display: block; }
+  .topbar-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,.55);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  /* ── Page shell ── */
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem) 5rem;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: .75rem;
+  }
+  .hero h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--navy);
+    text-wrap: balance;
+    margin-bottom: 1rem;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .hero-meta span { display: flex; align-items: center; gap: .4rem; }
+  .hero-meta b { color: var(--text); font-weight: 600; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .toc-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .75rem;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: .25rem .5rem;
+  }
+  .toc li { counter-increment: toc; }
+  .toc a {
+    font-size: 13.5px;
+    color: var(--navy);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: .4rem;
+    padding: .2rem 0;
+    transition: color .15s;
+  }
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: .04em;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .toc a:hover { color: var(--blue); }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 2.75rem; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.1rem;
+  }
+  .section-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    color: var(--blue);
+    background: #EBF2FF;
+    border-radius: 4px;
+    padding: 2px 7px;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .section h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: .85rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Lists ── */
+  ul.policy-list, ol.policy-list {
+    margin: .75rem 0 .85rem 0;
+    padding-left: 1.4rem;
+  }
+  ul.policy-list li, ol.policy-list li {
+    margin-bottom: .4rem;
+    font-size: 15px;
+  }
+  ul.policy-list li::marker { color: var(--blue); }
+
+  /* ── Data table ── */
+  .table-wrap { overflow-x: auto; margin: 1rem 0; border-radius: var(--r); border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    text-align: left;
+    padding: .7rem 1rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #F9FAFC; }
+  td { padding: .65rem 1rem; vertical-align: top; line-height: 1.5; }
+  td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  td code {
+    font-size: 12px;
+    background: #EBF2FF;
+    color: var(--blue-dk);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+  }
+
+  /* ── Callout ── */
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 var(--r) var(--r) 0;
+    padding: 1rem 1.25rem;
+    font-size: 14.5px;
+    color: #3A4A60;
+    margin: 1rem 0;
+  }
+
+  /* ── Contact card ── */
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+  .contact-item { font-size: 14.5px; }
+  .contact-item .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .2rem;
+  }
+  .contact-item a { color: var(--blue); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+
+  /* ── Divider ── */
+  hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 2rem;
+    justify-content: space-between;
+  }
+  footer a { color: var(--muted); text-decoration: underline; }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar" role="banner">
+  <div class="topbar-brand">
+    <div class="topbar-logo" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="2" width="5" height="5" rx="1" fill="white" fill-opacity=".9"/>
+        <rect x="9" y="2" width="5" height="5" rx="1" fill="white" fill-opacity=".6"/>
+        <rect x="2" y="9" width="5" height="5" rx="1" fill="white" fill-opacity=".6"/>
+        <rect x="9" y="9" width="5" height="5" rx="1" fill="white" fill-opacity=".9"/>
+      </svg>
+    </div>
+    StockLyte
+  </div>
+  <div class="topbar-meta">Privacy Policy</div>
+</div>
+
+<!-- Main document -->
+<main class="page" id="top">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-label">Legal Document</div>
+    <h1>Privacy Policy</h1>
+    <div class="hero-meta">
+      <span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="2" width="12" height="11" rx="1.5" stroke="#5A6A80" stroke-width="1.2"/><path d="M1 5h12" stroke="#5A6A80" stroke-width="1.2"/><path d="M4 1v2M10 1v2" stroke="#5A6A80" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Effective date: <b>August 10, 2026</b>
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="#5A6A80" stroke-width="1.2"/><path d="M7 4v3l2 1.5" stroke="#5A6A80" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Last updated: <b>August 10, 2026</b>
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1C4.24 1 2 3.24 2 6c0 3.75 5 8 5 8s5-4.25 5-8c0-2.76-2.24-5-5-5Z" stroke="#5A6A80" stroke-width="1.2"/><circle cx="7" cy="6" r="1.5" stroke="#5A6A80" stroke-width="1.2"/></svg>
+        Applies to: <b>Android &amp; iOS</b>
+      </span>
+    </div>
+  </div>
+
+  <!-- Table of contents -->
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#s1">Information We Collect</a></li>
+      <li><a href="#s2">How We Use Information</a></li>
+      <li><a href="#s3">Information Sharing</a></li>
+      <li><a href="#s4">Data Storage &amp; Security</a></li>
+      <li><a href="#s5">App Permissions</a></li>
+      <li><a href="#s6">Data Retention</a></li>
+      <li><a href="#s7">Your Rights</a></li>
+      <li><a href="#s8">Children's Privacy</a></li>
+      <li><a href="#s9">Changes to This Policy</a></li>
+      <li><a href="#s10">Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <!-- Intro -->
+  <p>
+    <strong>Impacgo Technologies</strong> ("we," "our," or "us") operates the <strong>StockLyte</strong> mobile application (the "App"), a professional inventory management platform for businesses. This Privacy Policy explains how we collect, use, and protect information when you use StockLyte on your Android or iOS device.
+  </p>
+  <p>
+    By downloading or using StockLyte, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the App.
+  </p>
+
+  <hr>
+
+  <!-- Section 1 -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Information We Collect</h2>
+    </div>
+
+    <p>We collect information you provide directly and data generated through your use of the App.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Data collected</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Account</td>
+            <td>Full name, email address, phone number, role, password (hashed)</td>
+            <td>Authentication and team management</td>
+          </tr>
+          <tr>
+            <td>Profile</td>
+            <td>Avatar photo, assigned location, language preference</td>
+            <td>Personalisation and multi-location access</td>
+          </tr>
+          <tr>
+            <td>Inventory data</td>
+            <td>Product names, SKUs, barcodes, descriptions, categories, pricing, stock levels, expiry dates</td>
+            <td>Core inventory management functionality</td>
+          </tr>
+          <tr>
+            <td>Product images</td>
+            <td>Photos captured or selected from your device</td>
+            <td>Product identification and catalogue</td>
+          </tr>
+          <tr>
+            <td>Stock movements</td>
+            <td>Transaction type, quantities, timestamps, notes, source/destination locations</td>
+            <td>Audit trail and reporting</td>
+          </tr>
+          <tr>
+            <td>Team data</td>
+            <td>Names, emails, phone numbers, roles of team members added by admins</td>
+            <td>User management within your organisation</td>
+          </tr>
+          <tr>
+            <td>Device &amp; technical</td>
+            <td>Timezone, device type (for UI rendering)</td>
+            <td>Analytics display and app functionality</td>
+          </tr>
+          <tr>
+            <td>Session tokens</td>
+            <td>Access token, refresh token (stored on-device)</td>
+            <td>Keeping you securely signed in</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      We do <strong>not</strong> collect location data (GPS), contact lists, call logs, device identifiers (IMEI/IDFA), or any advertising identifiers. StockLyte does not contain ads.
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>How We Use Information</h2>
+    </div>
+    <p>We use the information we collect exclusively to operate and improve StockLyte:</p>
+    <ul class="policy-list">
+      <li>Authenticate your identity and maintain your session securely</li>
+      <li>Display and manage your organisation's inventory, products, and stock levels</li>
+      <li>Generate reports, analytics dashboards, and CSV/PDF exports you request</li>
+      <li>Send in-app alerts for low stock thresholds and product expiry dates</li>
+      <li>Provide multi-user team management with role-based access controls</li>
+      <li>Maintain an audit log of all inventory transactions for accountability</li>
+      <li>Support multi-language display (English, Hindi, Telugu)</li>
+      <li>Diagnose technical issues and improve App stability</li>
+    </ul>
+    <p>We do not use your data for advertising, profiling, or any purpose unrelated to providing the inventory management service.</p>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Information Sharing</h2>
+    </div>
+    <p>We do not sell, rent, or trade your personal information to third parties. Information is shared only in these limited circumstances:</p>
+
+    <ul class="policy-list">
+      <li>
+        <strong>Supabase (Backend &amp; Cloud Storage)</strong> — Our backend infrastructure provider processes authentication, stores inventory data, and hosts product/avatar images. Supabase acts as a data processor under a data processing agreement. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a>.
+      </li>
+      <li>
+        <strong>Within your organisation</strong> — Admins and authorised team members can view inventory and team data within the same organisational account. Access is governed by the roles you assign.
+      </li>
+      <li>
+        <strong>Legal compliance</strong> — We may disclose information if required by law, court order, or to protect the rights and safety of users or the public.
+      </li>
+    </ul>
+
+    <div class="callout">
+      StockLyte does not integrate with advertising networks, social media platforms, analytics SDKs (e.g. Google Analytics, Firebase Analytics), or crash reporting services.
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Data Storage &amp; Security</h2>
+    </div>
+    <p>
+      Your data is stored on Supabase servers. All data transmission between the App and our servers uses <strong>HTTPS/TLS encryption</strong>. Session tokens are stored in your device's secure local storage (SharedPreferences) and are never transmitted to third parties.
+    </p>
+    <p>
+      We implement industry-standard technical and organisational measures to protect your data against unauthorised access, disclosure, or loss. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
+    </p>
+    <p>
+      <strong>Data location:</strong> Our API is hosted at <code>stocklyte.impacgo.com</code>. Your data may be processed in data centres operated by Supabase, which may be located outside your country of residence.
+    </p>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>App Permissions</h2>
+    </div>
+    <p>StockLyte requests the following device permissions:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Why it is needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>CAMERA</code></td>
+            <td>Scanning product barcodes and capturing product photos</td>
+          </tr>
+          <tr>
+            <td><code>READ_MEDIA_IMAGES</code> / <code>READ_EXTERNAL_STORAGE</code></td>
+            <td>Selecting existing images from your gallery for products and avatars</td>
+          </tr>
+          <tr>
+            <td><code>WRITE_EXTERNAL_STORAGE</code></td>
+            <td>Saving exported CSV and PDF reports to your device (Android 9 and below)</td>
+          </tr>
+          <tr>
+            <td><code>INTERNET</code></td>
+            <td>Communicating with the StockLyte backend to sync inventory data</td>
+          </tr>
+          <tr>
+            <td><code>VIBRATE</code></td>
+            <td>Haptic feedback during barcode scanning</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>All permissions are requested at runtime and can be revoked at any time through your device settings. Revoking a permission will disable the associated feature but will not affect your other App functionality.</p>
+  </section>
+
+  <!-- Section 6 -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Data Retention</h2>
+    </div>
+    <p>
+      We retain your account and inventory data for as long as your organisation's account is active. If you request account deletion, we will delete your personal data within <strong>30 days</strong>, except where retention is required by applicable law or for legitimate business purposes (such as resolving disputes or complying with legal obligations).
+    </p>
+    <p>
+      Audit log entries may be retained for up to <strong>12 months</strong> for compliance and accountability purposes, after which they are permanently deleted.
+    </p>
+  </section>
+
+  <!-- Section 7 -->
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Your Rights</h2>
+    </div>
+    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+    <ul class="policy-list">
+      <li><strong>Access</strong> — Request a copy of the personal data we hold about you</li>
+      <li><strong>Correction</strong> — Update inaccurate or incomplete personal data</li>
+      <li><strong>Deletion</strong> — Request deletion of your personal data ("right to be forgotten")</li>
+      <li><strong>Portability</strong> — Receive your data in a structured, machine-readable format</li>
+      <li><strong>Objection</strong> — Object to processing of your data in certain circumstances</li>
+      <li><strong>Withdraw consent</strong> — Where processing is based on consent, withdraw it at any time</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at the address below. We will respond within 30 days.</p>
+  </section>
+
+  <!-- Section 8 -->
+  <section class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Children's Privacy</h2>
+    </div>
+    <p>
+      StockLyte is a professional business application intended for use by adults aged <strong>18 and over</strong>. We do not knowingly collect personal information from children under the age of 13 (or the applicable age of digital consent in your jurisdiction). If we discover that a child has provided us with personal information, we will delete it promptly. If you believe a child has registered, please contact us immediately.
+    </p>
+  </section>
+
+  <!-- Section 9 -->
+  <section class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Changes to This Policy</h2>
+    </div>
+    <p>
+      We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. When we make material changes, we will update the "Last updated" date at the top of this page and, where appropriate, notify you through the App or by email.
+    </p>
+    <p>
+      Your continued use of StockLyte after any changes constitutes acceptance of the updated policy. We encourage you to review this page periodically.
+    </p>
+  </section>
+
+  <!-- Section 10 -->
+  <section class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Contact Us</h2>
+    </div>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out to us:</p>
+    <div class="contact-card">
+      <div class="contact-item">
+        <div class="label">Company</div>
+        <div>Impacgo Technologies</div>
+      </div>
+      <div class="contact-item">
+        <div class="label">App</div>
+        <div>StockLyte — Inventory Management</div>
+      </div>
+      <div class="contact-item">
+        <div class="label">Email</div>
+        <div><a href="mailto:nagasai@impacgo.com">nagasai@impacgo.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="label">Website</div>
+        <div><a href="https://stocklyte.impacgo.com" target="_blank" rel="noopener">stocklyte.impacgo.com</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span>&copy; 2026 Impacgo Technologies. All rights reserved.</span>
+    <span>StockLyte — Inventory Management App</span>
+  </footer>
+
+</main>
+</body>
+</html>
