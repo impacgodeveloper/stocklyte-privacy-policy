@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account — StockLyte</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #F7F9FC;
+      color: #111827;
+      line-height: 1.65;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1A5FD4;
+      margin-bottom: 32px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #FEE2E2;
+      color: #991B1B;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0F1623;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    .lead {
+      font-size: 15px;
+      color: #4B5563;
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    /* Cards */
+    .card {
+      background: #FFFFFF;
+      border: 1px solid #DDE3EE;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6B7280;
+      margin-bottom: 16px;
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: steps;
+    }
+
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      font-size: 14.5px;
+      color: #1F2937;
+    }
+
+    .step-list li:last-child { margin-bottom: 0; }
+
+    .step-list li::before {
+      content: counter(steps);
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #EBF1FC;
+      color: #1A5FD4;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* Email CTA */
+    .email-block {
+      background: #EBF1FC;
+      border: 1px solid #C3D6F7;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 8px;
+    }
+
+    .email-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1A3F82;
+      margin-bottom: 6px;
+    }
+
+    .email-link {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1A5FD4;
+      text-decoration: none;
+    }
+
+    .email-link:hover { text-decoration: underline; }
+
+    .email-note {
+      font-size: 12.5px;
+      color: #3B5998;
+      margin-top: 8px;
+    }
+
+    /* Subject line helper */
+    .subject-hint {
+      font-size: 13px;
+      color: #4B5563;
+      margin-top: 16px;
+    }
+    .subject-hint code {
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 12.5px;
+      color: #111827;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin-top: 4px;
+    }
+
+    .data-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #6B7280;
+      padding: 8px 12px;
+      background: #F7F9FC;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #F0F2F6;
+      color: #374151;
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .badge-del { background: #FEE2E2; color: #991B1B; }
+    .badge-ret { background: #FEF9C3; color: #854D0E; }
+
+    /* Timeline */
+    .timeline {
+      font-size: 14px;
+      color: #374151;
+    }
+    .timeline strong { color: #111827; }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px;
+      font-size: 12.5px;
+      color: #9CA3AF;
+      text-align: center;
+    }
+
+    .footer a { color: #1A5FD4; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="brand">StockLyte</div>
+
+    <div class="tag">Account Deletion</div>
+    <h1>Request Account &amp; Data Deletion</h1>
+    <p class="lead">You have the right to request deletion of your StockLyte account and all associated personal data. Follow the steps below to submit your request.</p>
+
+    <!-- How to request -->
+    <div class="card">
+      <div class="card-title">How to submit a deletion request</div>
+      <ol class="step-list">
+        <li>Send an email to our support team using the address below.</li>
+        <li>Use the subject line <strong>Account Deletion Request</strong> and include the email address registered to your account.</li>
+        <li>Our team will verify your identity and confirm the request within <strong>3 business days</strong>.</li>
+        <li>Your account and personal data will be permanently deleted within <strong>30 days</strong> of confirmation.</li>
+      </ol>
+
+      <div class="email-block" style="margin-top: 20px;">
+        <div class="email-label">Send your request to</div>
+        <a class="email-link" href="mailto:info@impacgo.com?subject=Account%20Deletion%20Request%20%E2%80%94%20StockLyte">info@impacgo.com</a>
+        <div class="email-note">Include the email address linked to your StockLyte account in the message body.</div>
+      </div>
+
+      <div class="subject-hint" style="margin-top: 16px;">
+        Suggested subject line: <code>Account Deletion Request — StockLyte</code>
+      </div>
+    </div>
+
+    <!-- What gets deleted -->
+    <div class="card">
+      <div class="card-title">What data is deleted vs retained</div>
+      <div style="overflow-x: auto;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Action</th>
+              <th>Retention Period</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name, email address, phone number</td>
+              <td><span class="badge badge-del">Deleted</span></td>
+              <td>Within 30 days of request</td>
+            </tr>
+            <tr>
+              <td>Profile photo / avatar</td>
+              <td><span class="badge badge-del">Deleted</span></td>
+              <td>Within 30 days of request</td>
+            </tr>
+            <tr>
+              <td>Product images uploaded by account</td>
+              <td><span class="badge badge-del">Deleted</span></td>
+              <td>Within 30 days of request</td>
+            </tr>
+            <tr>
+              <td>Stock transaction records</td>
+              <td><span class="badge badge-ret">Retained</span></td>
+              <td>Up to 90 days for business compliance, then deleted</td>
+            </tr>
+            <tr>
+              <td>Audit logs referencing your user ID</td>
+              <td><span class="badge badge-ret">Retained</span></td>
+              <td>Up to 90 days for business compliance, then deleted</td>
+            </tr>
+            <tr>
+              <td>Aggregated / anonymised analytics</td>
+              <td><span class="badge badge-ret">Retained</span></td>
+              <td>Indefinitely (no personal identifiers)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="card">
+      <div class="card-title">Processing timeline</div>
+      <div class="timeline">
+        <p>After we receive your request:</p>
+        <ul style="margin-top: 12px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+          <li><strong>Within 3 business days</strong> — identity verified and deletion confirmed via email.</li>
+          <li><strong>Within 30 days</strong> — personal data permanently deleted from all systems.</li>
+          <li><strong>Within 90 days</strong> — transaction and audit records purged after the compliance retention period.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Operated by <strong>Impacgo Solutions</strong> &nbsp;·&nbsp; <a href="https://impacgodeveloper.github.io/stocklyte-privacy-policy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="mailto:info@impacgo.com">info@impacgo.com</a></p>
+    </div>
+
+  </div>
+</body>
+</html>
